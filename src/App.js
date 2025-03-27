@@ -57,12 +57,6 @@ function App() {
     setEditText("");
   };
 
- /* const deleteTodo = (id) => {
-    if (window.confirm("Are you sure you want to delete this task?")) {
-      setTodos(todos.filter((todo) => todo.id !== id));
-    }
-  };
-*/
   const deleteTodo = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
@@ -136,18 +130,32 @@ function App() {
               .map((todo, index) => (
                 <li key={todo.id} className="todo-item">
                   <span className="serial-no">{index + 1}.</span>
-                  <span className="task-text">{todo.text}</span>
+                  {editingId === todo.id ? (
+                    <input
+                      type="text"
+                      value={editText}
+                      onChange={(e) => setEditText(e.target.value)}
+                    />
+                  ) : (
+                    <span className="task-text">{todo.text}</span>
+                  )}
                   <div className="actions">
-                    <button onClick={() => toggleComplete(todo.id)}>
-                      Complete
-                    </button>
-                    <button onClick={() => toggleUrgency(todo.id)}>
-                      Not Urgent
-                    </button>
-                    <button onClick={() => startEditing(todo.id, todo.text)}>
-                      Edit
-                    </button>
-                    <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+                    {editingId === todo.id ? (
+                      <button onClick={() => saveEdit(todo.id)}>Save</button>
+                    ) : (
+                      <>
+                        <button onClick={() => toggleComplete(todo.id)}>
+                          Complete
+                        </button>
+                        <button onClick={() => toggleUrgency(todo.id)}>
+                          Not Urgent
+                        </button>
+                        <button onClick={() => startEditing(todo.id, todo.text)}>
+                          Edit
+                        </button>
+                        <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+                      </>
+                    )}
                   </div>
                 </li>
               ))}
