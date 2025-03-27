@@ -1,38 +1,122 @@
 .App {
   text-align: center;
+  max-width: 1400px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title {
+  font-size: 3rem;
+  color: #ff6f61;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.input-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 12px;
+  width: 60%;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 18px;
+}
+
+button {
+  padding: 8px 12px;
+  background-color: #ff6f61;
   color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 6px;
+  white-space: nowrap;
 }
 
-.App-link {
-  color: #61dafb;
+.task-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.task-section {
+  flex: 1;
+  min-height: 400px;
+  max-height: 600px;
+  overflow-y: auto;
+  border: 3px solid #ff6f61;
+  border-radius: 10px;
+  padding: 20px;
+  width: 32%;
+}
+
+.not-urgent {
+  background-color: #fff7e6;
+}
+
+.urgent {
+  background-color: #ffe6e6;
+}
+
+.completed {
+  background-color: #e6ffe6;
+}
+
+h2 {
+  text-align: center;
+  font-size: 24px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.todo-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 12px;
+  background: white;
+  margin: 10px 0;
+  border-radius: 8px;
+  font-size: 18px;
+  word-wrap: break-word;
+}
+
+.task-text {
+  flex: 1;
+  min-width: 150px;
+  overflow-wrap: break-word;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: flex-end;
+}
+
+.actions button {
+  font-size: 14px;
+  padding: 6px 10px;
+}
+
+.serial-no {
+  font-weight: bold;
+  margin-right: 8px;
+  color: #555;
+}
+body {
+  background-image: url("https://t3.ftcdn.net/jpg/02/59/31/70/360_F_259317013_nJJaBgGGzvXMd6cAyLd6yMJtbdnd61wk.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: Arial, sans-serif;
 }
